@@ -1,0 +1,163 @@
+<!-- ajax_proxy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0971904e58b24f325dcbc9cda3b8655"></script>
+   <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0971904e58b24f325dcbc9cda3b8655&libraries=services,clusterer,drawing"></script>
+    
+    <script>
+   
+
+        $(function(){
+            $("#testClick").click(function(){
+                   console.log("테스트 클릭 성공");
+               });
+            
+            $('#btn').click(function(){
+            	
+                    var address = encodeURIComponent('http://openapi.seoul.go.kr:8088/6c4d744372746a72313236744a785a54/json/bikeList/1/5/');
+                        
+                $.ajax({
+                    url : 'proxy.jsp?url='+address,
+                    type :'GET',
+                    dataType : 'json',
+                    error : function(){
+                        alert('error');
+                    },
+                    success : function(obj){
+                       var msg = "";
+                       var a1=new Array();
+                       var b1=new Array();
+                       var name1= new Array();
+                        /* $("#sel").append(JSON.stringify(obj)); */
+                        var jsonObj = JSON.stringify(obj);
+                        msg +="</tr>";
+                  msg +="</thead>";
+                  msg +="<tbody>";
+                  for(var i in obj.rentBikeStatus.row){
+                       a1[i]=obj.rentBikeStatus.row[i].stationLatitude;
+                       b1[i]=obj.rentBikeStatus.row[i].stationLongitude;
+                      name1[i] = obj.rentBikeStatus.row[i].stationName;
+                      
+                      var msg1= "";
+                      msg1+="<body>"+"<button id=name1"+i+">"+name1[i]+"</button>"+"</body>";
+                      
+                      $("#sel").append(msg1);
+                      
+                      
+                      msg +="<td><a href='https://map.kakao.com/link/map/"+a1[i]+","+b1[i]+"' target='_blank'>"+name1[i]+"</a></td>";
+                      
+                      msg += "</tr>";
+                      
+                      
+                     
+                      
+                      
+                      
+                      
+                     
+                    
+                    
+                    
+                    
+                  } //반복문 끝
+                  
+                  
+                  
+                  console.log(name1[1]);
+                  
+                  
+                      msg +="</tbody>";
+                  msg +="</table>";
+                  msg +="</div>"; 
+                  
+                  
+                  
+                  $("#sel").append(msg);
+                  for (var i = 0; i < name1.length; i++) {
+                      (function call(j) {
+                         $("#name1"+j).click(function () {
+                            
+                             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                             mapOption = { 
+                                 center: new kakao.maps.LatLng(a1[j], b1[j]), // 지도의 중심좌표
+                                 level: 3 // 지도의 확대 레벨
+                             };
+
+                         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                         // 마커가 표시될 위치입니다 
+                         var markerPosition  = new kakao.maps.LatLng(a1[j], b1[j]); 
+
+                         // 마커를 생성합니다
+                         var marker = new kakao.maps.Marker({
+                             position: markerPosition
+                         });
+
+                         // 마커가 지도 위에 표시되도록 설정합니다
+                         marker.setMap(map); 
+                            
+                            
+                            
+                             /* var container = document.getElementById('map');
+                                var options = {
+                                   center: new kakao.maps.LatLng(a1[j], b1[j]),
+                                   level: 3
+                                };
+                                
+                                var map = new kakao.maps.Map(container, options);
+                                
+                                var coords=new daum.maps.LatLng(a1[j],b1[j]);
+                                
+                                 var marker = new daum.maps.Marker({
+                                    map:map,
+                                    position:coords
+                                 });  */
+                                 
+                                 
+                          },);
+                      })(i);
+                  }
+                  
+               
+                  
+                  
+                  
+                  
+                  
+                       
+                        
+                        
+                        
+                  
+                     
+                    }
+                    
+                    
+                });
+
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">가져오기</button>
+    <div>
+      <span id="testClick">
+     test입니다.
+     </span>
+     </div>
+   
+    <div id="sel">
+   <div id="map" style="width:1024px;height:800px;"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<cafelist>
+    <user>
+        <name>이명박</name>
+        <clubid>lmp1011</clubid>
+    </user>
+    <user>
+        <name>노무현</name>
+        <clubid>nmh1011</clubid>
+    </user>
+    <user>
+        <name>김대중</name>
+        <clubid>kdj1011</clubid>
+    </user>
+</cafelist>

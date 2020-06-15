@@ -1,0 +1,43 @@
+<!-- ajax_proxy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+    <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                var address = encodeURIComponent('http://apis.data.go.kr/9710000/NationalAssemblyInfoService/getMemberCurrStateList?ServiceKey=lN6dpnDGn%2BZM%2B5eKzbFxi6K%2BPIyK3dkF7Vm%2Bor%2FhREamB1GUbLz8Fewn3TtLcb70nHTYeGWUl6jgZhalwI4FkA%3D%3D&numOfRows=999&pageNo=?');
+                $.ajax({
+                    url : 'proxy.jsp?url=' + address,
+                    type :'GET',
+                    dataType : 'xml',
+                    error : function(){
+                        alert('error');
+                    },
+                    success : function(xml){
+                    	$(xml).find("item").each(function(){
+							let name = $(this).find("empNm").text();
+							let clubid = $(this).find("num").text();
+                    		var info =  name +","+clubid+"<br/>";
+                    		$('#sel').append(info);
+                    	});
+                    }
+                });
+
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">가져오기</button>
+    <div id="sel">
+
+    </div>
+</body>
+</html>
