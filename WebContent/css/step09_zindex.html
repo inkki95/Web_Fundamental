@@ -1,0 +1,35 @@
+<!--step09_zindex.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zindex</title>
+    <style>
+        img {
+            position : absolute;
+            width : 100px;
+        }
+        #one {
+            left : 20px;
+            top : 20px;
+            z-index : 2;
+        }
+        #two {
+            left : 60px;
+            top : 60px;
+            z-index : 3;
+        }
+        #three {
+            left : 100px;
+            top : 100px;
+            z-index : 1;
+        }
+    </style>
+</head>
+<body>
+    <img id="one" src="1.png">
+    <img id="two" src="2.png">
+    <img id="three" src="3.png">
+</body>
+</html>

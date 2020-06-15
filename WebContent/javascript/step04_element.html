@@ -1,0 +1,42 @@
+<!--step04_element.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script>
+        window.onload = function(){ 
+
+            document.getElementById("addBtn").addEventListener(
+                "click",function(){
+                let inputObj = document.getElementById("inputMsg");
+                let msg = inputObj.value;
+                if(msg != ''){//falcy value
+                    const ul = document.getElementById("ulList");
+                    const li = document.createElement("li");
+                    li.innerText = msg;
+                    ul.append(li);
+                    inputObj.value ='';
+                    inputObj.focus();
+                }else{
+                    inputObj.focus();
+                }
+            });
+
+            
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="msg" id="inputMsg">
+    <button id="addBtn">추가</button> 
+    <ul id="ulList">
+        <li>하나</li>
+        <li>둘</li>
+        <li>셋</li>
+    </ul>
+</body>
+
+</html>

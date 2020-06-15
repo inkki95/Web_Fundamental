@@ -1,0 +1,33 @@
+<!-- step03_crossdomain.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+    <script type="text/javascript" src="../jquery/jquery-3.5.1.js"></script>
+    
+    <script>
+        window.onload = function(){
+            loadScript('http://www.acornacademy.co.kr/blockchain/naver_json.jsp?call=test');
+        }
+        
+        function test(obj){
+            $('#sel').append(JSON.stringify(obj));
+        }
+        function loadScript(url){
+            var dScript = document.createElement('script');
+            dScript.src = url;
+            document.body.appendChild(dScript);
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="sel">
+
+    </div>
+    
+</body>
+
+</html>

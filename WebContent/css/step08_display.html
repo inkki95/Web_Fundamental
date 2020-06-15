@@ -1,0 +1,53 @@
+<!--step08_display.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        #one {
+            display : none;
+        }
+        /*
+            inline 요소
+            1. width, height를 지정할 수 없음
+            2. left, right margin, padding 지정할 수 있음
+            3. top, bottom margin , padding 지정할 수 없음
+            4. left, right에 다른 요소가 올 수 있음.
+        */
+        #two {
+            width : 200px;
+            height : 200px;
+            padding : 10px;
+            border : 1px solid black;
+            display : inline;
+        }
+        /*
+            inline-block 요소
+            1. width, height를 지정할 수 있음.
+            2. left, right margin, padding 지정할 수 있음.
+            3. top, bottom margin , padding 지정할 수 있음.
+            4. left, right에 다른 요소가 올 수 있음.
+        */
+        #three {
+            width : 200px;
+            height : 200px;
+            padding : 10px;
+            border : 1px solid black;
+            display : inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>display 속성</h1>
+    <button id="showBtn">눌러보세요</button>
+    <p id="one">I am student - one</p>
+    <hr>
+    <h1>inline vs inline-block</h1>
+    <div>I am student</div>
+    <div id="two">I am student - two</div>
+    <div id="three">I am student - three</div>
+    <div>I am student</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--step06_float.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float</title>
+    <style>
+        
+        .box {
+            width : 100px;
+            height : 100px;
+            background-color: yellow;
+            border : 1px solid black;
+            float : left;
+        }
+        .clear {
+            clear: both;
+        }
+        .container {
+            background-color: azure;
+            border : 1px solid black;
+            /*
+                부모요소가 float된 자식요소는 포함할 수 없기 
+                때문에 부모요소에 overflow : auto; 속성을
+                추가해줘야 함.
+            */
+            overflow: auto;
+            padding : 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">div1</div>
+        <div class="box">div2</div>
+        <div class="box">div3</div>
+        <div class="box">div4</div>
+        <div class="box">div5</div>
+    </div>
+    <div class="clear">div6</div>
+    <div>div7</div>
+</body>
+</html>

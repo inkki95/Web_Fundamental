@@ -1,0 +1,75 @@
+<!-- step02_ajax_json_jquery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+    <script type="text/javascript" src="../jquery/jquery-3.5.1.js"></script>
+    <script>
+        
+
+        $(function(){
+            $('#btn').click(function(){
+                $.ajax({
+                    url : 'json_data.json',
+                    type :'GET',
+                    dataType : 'json',
+                    error : function(){
+                        alert('error');
+                    },
+                    success : function(obj){
+                        //console.log(obj);
+                        //console.log(typeof obj);
+                        const listArray = obj.cafelist; 
+                        
+                        let message = "<ul>";
+
+                        for(let i=0;i<listArray.length;i++){
+                            const listObj = listArray[i];
+                            let name = listObj.name;
+                            let clubid = listObj.clubid;
+                            message += "<li>"+name+"("+clubid+")</li>";
+                        } 
+                        message += "</ul>";
+                        $("#sel").append(message);
+                    }
+                });
+
+
+                /*
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status ==200){
+                        console.log(typeof xhr.responseText);
+                        console.log(xhr.responseText);
+                        //문자열을 javascript 객체로 변환
+                        const obj = JSON.parse(xhr.responseText);
+                        const listArray = obj.cafelist; 
+                        
+                        let message = "<ul>";
+
+                        for(let i=0;i<listArray.length;i++){
+                            const listObj = listArray[i];
+                            let name = listObj.name;
+                            let clubid = listObj.clubid;
+                            message += "<li>"+name+"("+clubid+")</li>";
+                        } 
+                        message += "</ul>";
+                        $("#sel").append(message);
+                    }
+                }
+                */
+            });
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">가져오기</button>
+    <div id="sel">
+
+    </div>
+</body>
+</html>

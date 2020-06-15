@@ -1,0 +1,37 @@
+<!--step05_event.html-->
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			$('#btn1').click(function(){
+				//$('#target').fadeOut('fast');
+				//$('#target').hide('slow');
+				$('#target').slideUp('slow');
+			});
+			$('#btn2').click(function(){
+				//$('#target').fadeIn('fast');
+				//$('#target').show('slow');
+				$('#target').slideDown('slow');
+			});
+		});
+    </script>
+	<style>
+		div {
+			width : 300px;
+			height : 300px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn1" value="효과1">
+	<input type="button" id="btn2" value="효과2">
+	<div id="target">
+
+	</div>
+</body>
+</html>

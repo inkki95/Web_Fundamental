@@ -1,0 +1,36 @@
+<!--step05_event2.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <style>
+        #myBox {
+            width : 200px;
+            height : 200px;
+            border : 1px solid red;
+            cursor : pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="myBox">boox</div>
+</body>
+    <script>
+         const divObj = document.getElementById("myBox");
+         divObj.addEventListener("mouseover",function(){
+             this.style.backgroundColor ="gray";
+         });
+         divObj.addEventListener("mouseout",function(){
+             this.style.backgroundColor="white";
+         });
+         divObj.addEventListener("mousedown",function(){
+            this.style.backgroundColor="red";
+         });
+         divObj.addEventListener("mouseup",function(){
+            this.style.backgroundColor="gray";
+         });
+
+    </script>
+</html>

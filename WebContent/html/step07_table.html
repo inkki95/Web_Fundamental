@@ -1,0 +1,52 @@
+<!--step07_table.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        div {
+            margin : 0 auto;
+            width : 600px;
+        }
+        table {
+            border : 1px dotted black;
+            border-collapse: collapse;
+        }
+        td , th{
+            border : 1px dotted black;
+        }
+    </style>
+</head> 
+<body>
+    <div class="container">
+        <h3>표(table) 형식으로 정보 출력</h3>
+        <table>
+            <caption>친구 목록입니다.</caption>
+            <colgroup>
+            <col width = "100px"/>
+            <col width = "300px"/>
+            <col width = "200px"/>
+            </colgroup>
+            <thead>
+                <th>번호</th>
+                <th>이름</th>
+                <th>주소</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td colspan="2">손정의</td>
+                    
+                </tr>
+                <tr>
+                    <td>게이츠</td>
+                    <td>미국</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

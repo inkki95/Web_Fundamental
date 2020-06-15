@@ -1,24 +1,28 @@
+<!--step03_object.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numer Literal</title>
-<script>
+    <title>Number Literal</title>
+    <script>
+        const mem = {
+            num : 1,
+            "first name" : '성영한',
+            "a-ddress" : '한국',
+            "test" : function(){
+                console.log('test function');
+            }
+        }
+        console.log(mem.num);
+        console.log(mem["num"]);
+        console.log(mem["first name"]);
+        console.log(mem["a-ddress"]);
+        mem.test();
 
-const mem = {
-    num : 1,
-    "first name" : '성영한',
-    "a-ddress" : "한국"
-}
-console.log(mem.num);
-console.log(mem["num"]);
-console.log(mem["first name"]);
-console.log(mem["a-ddress"]);
-
-const mask = {
-  "count": 83,    // 83개의 방(배열)
-  "stores": [{   // 배열
+        const mask = {
+  "count": 83,
+  "stores": [{
     "addr": "서울특별시 강남구 논현로95길 29-13 2층 (역삼동)",
     "code": "12848069",
     "created_at": "2020/06/10 14:45:00",
@@ -28,7 +32,7 @@ const mask = {
     "remain_stat": "some",
     "stock_at": "2020/06/08 09:29:00",
     "type": "01"
-  }, {  // 배열 2번째 방
+  }, {
     "addr": "서울특별시 강남구 테헤란로25길 59 지하1층 (역삼동)",
     "code": "11841940",
     "created_at": "2020/06/10 14:45:00",
@@ -851,18 +855,44 @@ const mask = {
   }]
 }
 
-console.log(mask.count);
+    console.log(mask.count);
 
-const stores = mask.stores;   //배열
-for (let index = 0; index < stores.length; index++) {
-    const element = stores[index];
-    let name = element.name;
-    console.log(name);
+    const stores = mask.stores;
+
+    for(let i = 0;i<stores.length;i++){
+        const storeObj = stores[i];
+        let name = storeObj.name;
+        console.log(name);
+    }
+    const test = {
+    cafelist :[
+        {"name" : "성영한", "clubid" : "syh1011"},
+        {"name" : "홍길동", "clubid" : "lmp1011"},
+        {"name" : "김대중", "clubid" : "kdj1011"}
+        ]
+    } 
+    console.log(test.cafelist[1].name);//홍길동
+    console.log(test.cafelist[2].clubid);//kdj1011
     
-}
+    const cafelist = test.cafelist;//array
+    for(let i=0;i<cafelist.length;i++){
+        const cafelistobj = cafelist[i];//object
+        let name = cafelistobj.name;
+        let clubid = cafelistobj.clubid;
+        console.log(name +','+clubid);
+    }
 
-</script>
+    let str = '{"name":"aaa","age":12}';
+    //JSON.parse(문자열) : 문자열을 object로 변환
+    const member = JSON.parse(str);
+    console.log(member.name);
 
+    alert(member);
+    
+    //JSON.stringify(object) : object를 문자열로 변환
+    let memberStr = JSON.stringify(member);
+    alert(memberStr);
+    </script>
 </head>
 <body>
     

@@ -1,0 +1,100 @@
+<!--step03_traversing.html-->
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+		
+        $(function(){
+			//$('li').eq(0).addClass('s');
+			//$('li').first().addClass('s');
+			//$('li').not(":even").addClass('s');
+			/*
+			$('li').each(function(index, element){
+				console.log(index +","+ $(element).text());
+			});
+			$('li').each(function(){
+				console.log($(this).text());
+			});
+			*/
+
+			//$('#root').children().addClass('s');
+			//현재 엘리먼트를 포함해서 가장 가까운 부모 엘리먼트를 찾음
+			
+			//확인 요망
+			$('li').eq(0).closest('ul').addClass('s');
+
+			//$('#root').find('li').addClass('s');
+			//$('#root li').addClass('s');
+
+			//$('#root').find('li').first().addClass('s');
+			//$('#root').find('li').first().next().addClass('s');
+			//$('#root').find('li').first().nextAll().addClass('s');
+			//$('#root').find('li').parent().addClass('s');
+			//$('#root').find('li').parents().addClass('s');
+
+			$('#first').siblings().addClass('s');
+
+        });
+    </script>
+	<style type="text/css">
+		
+		div, ul,  li {
+			border : 2px solid rgb(48, 31, 31);
+			margin : 10px;
+			padding : 10px;
+		}
+		#message { 
+		width:98%;
+  		height:auto;
+  		font-size:20px;
+		
+		padding: 14px 10px; 
+		border: 1px solid #999; 
+		
+		}
+
+
+		#panel ul{
+			list-style : none;
+		}
+		
+		.s{
+			border : 2px solid red ;
+			background-color : yellow;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<div id="panel">
+        div id="panel"
+		<div id="root">
+			div id="root""
+			<div id="first">
+				div id="first"
+			</div>
+			<div>
+				div
+				<ul>
+					ul
+					<li>li</li>
+					<li>li</li>
+					<li>li</li>
+					<li>li</li>
+					<li>li</li>
+					<li></li>
+				</ul>
+				<div class="third">div class="third sung"</div>
+			</div>
+			<div >div</div>
+			
+		</div>
+	</div>
+	
+	
+</body>
+</html>

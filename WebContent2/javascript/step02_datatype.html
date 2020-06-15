@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Data type</title>
+<script>
+let num1 = 10;
+let num2 = 20.1;
+
+console.log(typeof num1);
+console.log(typeof num2);
+
+let myName = '성영한';
+let yourName = '손정의';
+
+console.log(typeof myName);
+console.log(typeof yourName);
+
+let isRun = true;
+let isGreater = 10>5;
+
+console.log(typeof isGreater);
+console.log(typeof isRun);
+console.log(isGreater);
+console.log (isRun);
+
+let a1 = 10;
+let a2 = "10";
+console.log(a1==a2);  // 값비교
+console.log(a1===a2); // 값비교 + 자료형 비교
+
+
+let a3;
+console.log(typeof a3);
+
+// array type()  ---> object로 나옴
+const nemaes =['성영한','손정의','이재용'];
+console.log(typeof nemaes);
+
+const obj = {num1 : 1, name:'성영한', id : 'syh1011'};
+console.log(typeof obj);
+
+const f = function(){
+
+}
+console.log(typeof f);
+
+
+let iswait = false;
+let isSmaller = 10<5;
+let isEqual = 10==1000;
+let isDifference = 10!=100;
+let isEqual2 = 1000==="1000";
+
+
+//falcy value
+let a = 0;
+if(a){
+    console.log('true');
+}else{
+    console.log('false');
+}
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

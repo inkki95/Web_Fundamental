@@ -1,0 +1,42 @@
+<!--step05_event.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script>
+        function send(){
+              alert('전송1');
+        }  
+        window.onload = function(){
+            
+          //listener 방식(click event)
+          document.getElementById("sendBtn").
+          addEventListener("click",function(){
+              alert("전송2");
+          });
+
+          //listener 방식(key event)
+          document.getElementById("inputText").
+          addEventListener("keydown",function(){
+              if(event.keyCode == 13){
+                  alert("전송3");
+              }
+          });
+        }
+
+    </script>
+</head>
+<body>
+    <!--inline event-->
+    <button onclick="javascript:send();" >전송1</button>
+    <!--listener event-->
+    <button id="sendBtn">전송2</button>
+    <input  id="inputText">
+</body>
+    <script>
+          
+
+    </script>
+</html>

@@ -1,23 +1,35 @@
+<!--step11_weight.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS weight</title>
+    <title>CSS Weight</title>
     <style>
-        li{
-            background-color: yellow;
+        li {
+            background-color: yellow;/*1점*/
+        }
+        ul li{
+            background-color: green;/*2점*/
+        }
+        .active {
+            background-color: blue;/*10점*/
+        }
+        #one {
+            background-color: pink;/*100점*/
+        }
+        #one {
+            background-color: brown !important;/*10100점*/
         }
     </style>
 </head>
 <body>
-    
-    <div>class="wrapper"</div>
-<div>class="nav"</div>
-<ul>
-<li class="active" in = "one" style="background-color: lime;">하나 </li>
-
-</ul>
-
+    <div class="wrapper">
+        <div class="nav">
+            <ul>
+               <li class="active" id="one" style="background-color: red ;">하나</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

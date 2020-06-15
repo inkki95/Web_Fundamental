@@ -1,53 +1,85 @@
+<!--step01_var.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Variable</title>
-<script>
-var num1 = 9999;
-var num1 = 1000;
+    <script>
+        //한줄 주석
+        /*
+            여러줄 주석
+        */
+        //숫자를 선언하는 방법
+        var num1 = 9999;
+        var num1 = 1000;//var는 이중선언 가능
 
-console.log(num1);
+        //alert(num1);
+        console.log(num1);
 
-var myName = '성영한';
-var yourName = '조국';
-var multiName = `나는 성영한입니다
- 너는 누구냐?`;
+        //문자열 선언하는 방법
+        var myName = '성영한';
+        var yourName = "조국";
+        var multiName = `나는 성영한입니다.
+        너는 누구냐?`;//es6에서 추가된 문자열 표기법
+        console.log(multiName);
 
-console.log(myName);
-console.log(multiName);
-
-var test;
-
-console.log(typeof num1);
-console.log(typeof myName);
-console.log(typeof multiName);
-console.log(typeof test);
-
-
-console.log(ourName);
-var ourName='kpc';
-console.log(ourName);
-
-foo();
-function foo(  ){
-    console.log('function foo()');
-}
-
-let a1 = 1;
-a1=4;
-console.log(a1);
-
-const e1 = [1,2];
-e1.push(3);
-console.log(e1);
+        var test;
 
 
+        //자료형 확인
+        console.log(typeof num1);
+        console.log(typeof myName);
+        console.log(typeof test);
+        console.log(typeof ourName);
 
+        var ourName = "kpc";//variable hoisting
+        
+        console.log(typeof ourName);
 
-</script>
+        foo();
+        function foo(){//fuction hoisting
+            console.log('function foo()');
+        }
+        console.log(typeof foo);
+        
+        let a1 = 1000;
+        //let a1 = 2000;//이중선언 안됨
+        console.log(a1);
 
+        //console.log(a2);
+        //let a2 = 10;// variable hoisting(x)
+
+        var b1 = 10;
+        console.log(b1);//10
+        if(true){
+            var b1 = 20;
+            console.log(b1);//20
+        }
+        console.log(b1);//20
+
+        let c1 = 10;
+        console.log(c1);//10
+        if(true){
+            let c1 = 20;
+            console.log(c1);//20
+        }
+        console.log(c1);//10
+
+        const d1 = 10;
+        //d1 = 30;//const는 primitive type일때 변경 불가
+
+        const e1 = [1,2];
+        e1.push(3);//const는 complext type일때는 객체의 
+                    //구성요소가 바뀌는 것은 괜찮음
+        console.log(e1);
+
+        //1. primitive type => let
+        //2. primitive type중에서 상수가 필요할 때는 const
+        //3. complext type => const
+
+        
+    </script>
 </head>
 <body>
     

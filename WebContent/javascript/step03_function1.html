@@ -1,0 +1,50 @@
+<!--step03_function1.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        /*
+            1. 선언적 함수 - 함수 호이스팅 가능 
+            2. 함수식 - 함수 호이스팅 불가능
+        */
+
+        //1.선언적 함수
+        test1();
+
+        function test1(){
+            console.log("test1 function");
+        }
+
+        //2. 함수식
+        
+        const test2 = function(){
+            console.log("test2 function");
+        }
+        test2();
+
+        //3. test2에 참조값을 test3에 할당
+        const test3 = test2;
+
+        test3();
+
+        const plus = function(num1,num2){
+            console.log(arguments.length);
+            return num1+num2;
+        }
+
+        let result = plus(10,20,30);
+        console.log(result);
+
+
+        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!--step04_psedo.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo</title>
+    <style>
+        .box {
+            width : 100px;
+            height : 100px;
+            border : 1px solid red;
+        }
+        /*hover pseudo class*/
+        .box:hover{
+            background-color: red;
+        }
+        /*focus pseudo class*/
+        input:focus {
+            background-color: red;
+        }
+        /*active pseudo class*/
+        button:active{
+            background-color: red;
+        }
+        a {
+            text-decoration : none;/*밑줄제거*/
+            
+        }
+        a:hover {
+            text-decoration : underline;
+        }
+        /*한번도 방문하지 않는 link pseudo class*/
+        a:link {
+            color : black;
+        }
+        a:visited {
+            color : green;
+        }
+
+        #one::first-letter {
+            font-weight : bold;
+            color : red;
+        }
+
+        #first::first-line {
+            background-color: yellow;
+        }
+
+        #quote::before {
+            content : "'";
+            color : red;
+        }
+        #quote::after {
+            content : "'";
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <input type="text">
+    <input type="text">
+    <button>버튼</button>
+    <button>버튼</button><br>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.google.co.kr">구글</a>
+    <p id="one">I am student</p>
+    <p id="first">I am student I am student I am student I am student I am student I am student</p>
+    <p id="quote">I am student</p>
+</body>
+</html>

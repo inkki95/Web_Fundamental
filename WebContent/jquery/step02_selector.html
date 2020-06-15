@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+		
+        $(function(){
+            //$('div').addClass('s');//element selector
+            //$('#root').addClass('s');//id selector
+            //$('.third').addClass('s');//class selector
+            //$('#root > div').addClass('s');//child selector
+            //$('#root  div').addClass('s');//descendant selector
+			//$('li:nth(2)').addClass('s');
+			//$('li:even').addClass('s');
+			//$('li:gt(2)').addClass('s');
+			//$('li:first').addClass('s');
+			//$('li:last').addClass('s');
+			$('li:empty').addClass('s');
+        });
+    </script>
+	<style type="text/css">
+		
+		div, ul,  li {
+			border : 2px solid rgb(48, 31, 31);
+			margin : 10px;
+			padding : 10px;
+		}
+		#message { 
+		width:98%;
+  		height:auto;
+  		font-size:20px;
+		
+		padding: 14px 10px; 
+		border: 1px solid #999; 
+		
+		}
+
+
+		#panel ul{
+			list-style : none;
+		}
+		
+		.s{
+			border : 2px solid red ;
+			background-color : yellow;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<div id="panel">
+        div id="panel"
+		<div id="root">
+			div id="root""
+			<div id="first">
+				div id="first"
+			</div>
+			<div>
+				div
+				<ul>
+					ul
+					<li>li</li>
+					<li>li</li>
+					<li>li</li>
+					<li>li</li>
+					<li>li</li>
+					<li></li>
+				</ul>
+				<div class="third">div class="third sung"</div>
+			</div>
+			<div class="third">div</div>
+			
+		</div>
+	</div>
+	
+	
+</body>
+</html>
