@@ -16,16 +16,17 @@
 				  <ul class="pagination justify-content-center">
 				    <li class="page-item disabled">
 				    </li>
-				    <li class="page-item"><a class="page-link" href="sampfire.html">fire</a></li>
-				    <li class="page-item"><a class="page-link" href="sampAED.html">AED</a></li>
-				    <li class="page-item"><a class="page-link" href="">etc</a></li>
+				       <a class="page-link" href="../main.jsp">Home</a>
+				    <li class="page-item"><a class="page-link" href="sampfire.jsp">fire</a></li>
+				    <li class="page-item"><a class="page-link" href="">AED</a></li>
+				    <li class="page-item"><a class="page-link" href="sampetc.jsp">etc</a></li>
 				    <li class="page-item">
 				    </li>
 				  </ul>
 				</nav>
-    <h1>etc</h1>
-    <h2>etc</h2>
-    <h3>etc</h3>
+    <h1>AED</h1>
+    <h2>AED</h2>
+    <h3>AED</h3>
 </body>
 
 </html>

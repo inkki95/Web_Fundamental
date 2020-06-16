@@ -119,9 +119,10 @@
 				  <ul class="pagination justify-content-center">
 				    <li class="page-item disabled">
 				    </li>
+		        <a class="page-link" href="../main.jsp">Home</a>
 				    <li class="page-item"><a class="page-link" href="">fire</a></li>
-				    <li class="page-item"><a class="page-link" href="sampAED.html">AED</a></li>
-				    <li class="page-item"><a class="page-link" href="sampetc.html">etc</a></li>
+				    <li class="page-item"><a class="page-link" href="sampAED.jsp">AED</a></li>
+				    <li class="page-item"><a class="page-link" href="sampetc.jsp">etc</a></li>
 				    <li class="page-item">
 				    </li>
 				  </ul>
