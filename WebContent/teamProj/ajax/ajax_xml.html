@@ -1,0 +1,46 @@
+<!--ajax_proxy.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get</title>
+    <script type = "text/javascript" src ="jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                $.ajax({
+                    url : 'aed.xml',
+                    type : 'GET',
+                    dataType : 'xml',
+                    error : function(){
+                        alert('error');
+                    },
+                    success : function(xml){
+                        $(xml).find("item").each(function(){
+                        	let address = $(this).find("buildAddress").text();
+                        	let place = $(this).find("buildPlace").text();
+                        	let lat = $(this).find("wgs84Lat").text();
+                        	let lon = $(this).find("wgs84Lon").text();
+                        	var info = "주소 : " + address +"<br/>"+
+                        			   "위치 : " + place +"<br/>"+
+                        			   "위도 : " + lat +"<br/>" +
+                        			   "경도 : " + lon +"<br/>" + "<br/>";
+                        			   
+                        	$('#sel').append(info);
+                        });
+                    }
+                });
+
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <button id = "btn">가져오기</button>
+    <div id ="sel">
+
+    </div>
+</body>
+</html>

@@ -1,48 +1,38 @@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-   <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="/js/jquery-3.5.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	<style>
-        
-    </style>
-</head>
-<body>
-	<!-- Navigation Bar -->
-	<nav class="navbar navbar-expand-md navbar-dark" style="background-color:#7952b3;">
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">홈 <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="/notice/list.jsp">공지사항</a>
-	      </li>
-	      
-	    </ul>
-	    <!-- 
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	    </form>
-	   	 -->
-	  </div>
-	</nav>
+<%@page import="kr.or.kpc.dto.NoticeDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.or.kpc.dao.NoticeDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../inc/header.jsp"%>
+<%
+	int displayCount = 3;
+	int displayPageCount = 5;
+	String tempPage = request.getParameter("page");
+	int cPage = 0;
+	if(tempPage == null || tempPage.length()==0){
+		cPage = 1;
+	}
+	
+	try {
+		cPage = Integer.parseInt(tempPage);
+	}catch(NumberFormatException e){
+		cPage = 1;
+	}
+	/*
+	cPage = 1  => 1 - 10  => start : 0
+	cPage = 2  => 11 - 20 => start : 10
+	cPage = 3  => 21 - 30 => start : 20
+	
+	An = a1 + (n-1) * d
+	
+	*/
+	
+	NoticeDao dao = NoticeDao.getInstance();
+	int start   =  (cPage-1)*displayCount;
+	ArrayList<NoticeDto> list = dao.select(start ,  displayCount );
+	
+	
+%>
 	<nav aria-label="breadcrumb ">
 	  <ol class="breadcrumb justify-content-end">
 	    <li class="breadcrumb-item "><a href="#">홈</a></li>
@@ -71,78 +61,90 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				    <%for(NoticeDto dto : list){%>
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>Mark</td>
-				      <td><a href="view.jsp">Otto</a></td>
-				      <td>@mdo</td>
+				      <th scope="row"><%=dto.getNum() %></th>
+				      <td><%=dto.getWriter() %></td>
+				      <td><a href="view.jsp"><%=dto.getTitle() %></a></td>
+				      <td><%=dto.getRegdate() %></td>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td colspan="2">Larry the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
+				    <%}%>
 				    
 				  </tbody>
 				</table>
-				
+				<%
+					/*
+					128개
+					Previous 1 2 3 4 5 6 7 8 9 10 Next  => currentBlock : 1block
+					Previous 11 12 13 Next              => currentBlock : 2block
+					
+					65개
+					Previous 1 2 3 4 5 6 7 Next
+					*/
+					int totalRows = dao.getRows();//11
+					int totalPage = 0;
+					int currentBlock = 0;
+					int totalBlock = 0;
+					
+					if(totalRows%displayCount==0){
+						totalPage = totalRows/displayCount;
+					}else{
+						totalPage =  totalRows/displayCount +1;
+					}
+					if(totalPage == 0){
+						totalPage = 1;
+					}
+					
+					if(cPage % displayPageCount == 0){
+						currentBlock = cPage/displayPageCount;
+					}else{
+						currentBlock = cPage/displayPageCount +1;
+					}
+					
+					if(totalPage%displayPageCount==0){
+						totalBlock = totalPage/displayPageCount;
+					}else{
+						totalBlock = totalPage/displayPageCount +1;
+					}
+					
+					int startPage = 1+(currentBlock -1) *displayPageCount;
+					int endPage = displayPageCount +(currentBlock -1) *displayPageCount;
+					
+					if(currentBlock == totalBlock){
+						endPage = totalPage;
+					}
+					
+					
+					
+				%>
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
+				  	<%if(currentBlock==1){ %>
 				    <li class="page-item disabled">
 				      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
 				    </li>
-				    <li class="page-item"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <%}else{ %>
 				    <li class="page-item">
+				      <a class="page-link" href="list.jsp?page=<%=startPage-1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+				    </li>
+				    <%} %>
+				    <%for(int i=startPage;i<=endPage;i++){ %>
+				    <li class="page-item"><a class="page-link" href="list.jsp?page=<%=i%>"><%=i %></a></li>
+				    <%} %>
+				    <%if(totalBlock==currentBlock){ %>
+				    <li class="page-item disabled">
 				      <a class="page-link" href="#">Next</a>
 				    </li>
+				    <%}else{ %>
+				    <li class="page-item">
+				      <a class="page-link" href="list.jsp?page=<%=endPage+1%>">Next</a>
+				    </li>
+				    <%} %>
 				  </ul>
 				</nav>
 				
-				<div class="text-right"  style="margin-bottom : 500px;">
-					<a href="write.jsp" class="btn btn-outline-danger">글쓰기</a>
+				<div class="text-right"  style="margin-bottom : 20px;">
+					<a href="write.jsp?page=<%=cPage %>" class="btn btn-outline-danger">글쓰기</a>
 				</div>
 	        	
 	        	</div>
@@ -153,12 +155,4 @@
 
 
 
-
-<footer class="bd-footer bg-dark text-muted">
-	  <div class="container-fluid p-3 p-md-5">
-	    <p>Designed and built with all the love in the world by the <a href="/docs/4.5/about/team/">Bootstrap team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
-	    <p>Currently v4.5.0. Code licensed <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</p>
-	  </div>
-	</footer>
-</body>
-</html>
+<%@ include file="../inc/footer.jsp"%>
