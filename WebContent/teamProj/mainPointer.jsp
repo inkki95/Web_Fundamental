@@ -16,16 +16,9 @@
     	 background-image: url('img/ryan.png');
     	 background-repeat: no-repeat;
     	 background-size: cover;
-    	 
-    	 
+    
     
     }
-    .dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#ffffff;}
-	.dotOverlay:after {content:'';position:absolute;margin-left:-6px;left:50%;bottom:-8px;width:11px;height:8px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png')}
-	.distanceInfo {position:relative;top:5px;left:5px;list-style:none;margin:0;}
-	.number {font-weight:bold;color:#ee6152;} 
-	.distanceInfo .label {display:inline-block;width:50px; font-weight:bold; color: black;}
-    
     
     </style>
     
@@ -76,8 +69,7 @@
                                 lon = position.coords.longitude;
                              
                             var locPosition = new kakao.maps.LatLng(lat, lon),
-                            message = '<div style="padding:5px;"><span>내 위치!<div></span><p style="font-size:9px; font-weight:bolder; color:red; margin :0;">마우스 왼쪽버튼 을 클릭해보세요</p><p style="font-size:9px;font-weight:bolder; color:red; margin :0;">거리/시간을 알려줍니다!</p></div></div>';
-                            
+                                message = '<div style="padding:5px;">내 위치!</div>';
                              
 
                             displayMarker(locPosition, message);
@@ -113,7 +105,19 @@
                     }    
                 
                  
-                
+                 	kakao.maps.event.addListener(map, 'center_changed', function() {
+
+                        var level = map.getLevel();
+
+                        var latlng = map.getCenter(); 
+
+                        var message = '<p>11KKKK ' + level + 'KKKKÃÂ </p>';
+                        message += '<p>KKKK ' + latlng.getLat() + ', KKKK ' + latlng.getLng() + 'KK</p>';
+
+                        var resultDiv = document.getElementById('result');
+                 
+                    });
+
                     //추가 함수
                     kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 
@@ -131,7 +135,7 @@
                                 //선 디자인 편집(두께,색,투명도,스타일)
                                 strokeWeight : 3,
                                 strokeColor : '#db4040',
-                                strokeOpacity : 0.8,
+                                strokeOpacity : 1,
                                 strokeStyle: 'solid'
                             });
                             moveLine = new kakao.maps.Polyline({
@@ -249,7 +253,7 @@
 
                         if (distance > 0) {
                             var distanceOverlay = new kakao.maps.CustomOverlay({
-                                content : '<div class="dotOverlay">직선거리 <span class="number">'
+                                content : '<div class="dotOverlay">거리 <span class="number">'
                                             + distance + '</span>m</div>',
                                 position : position,
                                 yAnchor : 1,
